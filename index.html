@@ -222,21 +222,16 @@
           <img id="img2" alt="照片2" />
           <img id="img3" alt="照片3" />
           <div class="gallery-placeholder" id="galleryPlaceholder">
-            <div>这里已经给你留好了三张照片的位置。</div>
-            <div>把你的图片文件改成下面这 3 个名字，</div>
-            <div><strong>photo1.jpg / photo2.jpg / photo3.jpg</strong></div>
-            <div>然后和这个 HTML 放在同一个文件夹里就能显示。</div>
+            <div>此刻的心动，等你来填满。</div>
           </div>
+        </div>
         </div>
         <div class="gallery-dots">
           <span class="dot active"></span>
           <span class="dot"></span>
           <span class="dot"></span>
         </div>
-        <div class="hint" style="margin-top:10px;">
-          你刚发的 3 张图我已经按结构留位了。<br>
-          由于聊天里的图片不能直接塞进本地网页文件里，下载后按上面的文件名放同目录就行。
-        </div>
+        
       </div>
 
       <div class="music-card">
@@ -248,16 +243,11 @@
         <div class="btn-row">
           <button class="primary" onclick="playMusic()">播放 / 暂停 BGM</button>
         </div>
-        <div class="music-status" id="musicStatus" style="margin-top:10px;">
-          已按“自动播放”思路写好，但手机浏览器可能需要你先点一下页面。
-        </div>
+        <div class="music-status" id="musicStatus" style="margin-top:10px;">轻轻一点，浪漫开始播放。</div>
         <audio id="bgm" loop preload="auto" autoplay>
           <source src="gaobaiqiqiu.mp3" type="audio/mpeg" />
         </audio>
-        <div class="hint" style="margin-top:10px;">
-          把《告白气球》的 mp3 文件重命名为 <strong>gaobaiqiqiu.mp3</strong>，
-          和这个 HTML 放在同一个文件夹里，音乐就能正常播。
-        </div>
+        
       </div>
 
       <div class="secret-card">
@@ -397,20 +387,20 @@
       if (!audio) return;
       if (audio.paused) {
         audio.play().then(() => {
-          musicStatus.textContent = 'BGM 正在播放：《告白气球》';
+          musicStatus.textContent = '《告白气球》正在播放';
         }).catch(() => {
-          musicStatus.textContent = '浏览器拦了自动播放，点一次按钮一般就能播。';
+          musicStatus.textContent = '点一下，旋律就会响起';
         });
       } else {
         audio.pause();
-        musicStatus.textContent = 'BGM 已暂停。';
+        musicStatus.textContent = '音乐暂停了，但喜欢没有';
       }
     }
 
     document.addEventListener('click', () => {
       if (audio && audio.paused) {
         audio.play().then(() => {
-          musicStatus.textContent = 'BGM 已开始播放：《告白气球》';
+          musicStatus.textContent = '《告白气球》正在播放';
         }).catch(() => {});
       }
     }, { once: true });
