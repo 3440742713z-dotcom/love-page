@@ -2,261 +2,273 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>给洪子珍的小网页</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>给洪子珍</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    :root {
-      --pink-1: #fff7fb;
-      --pink-2: #ffe5f0;
-      --pink-3: #ffd6e9;
-      --pink-4: #ffb9d6;
-      --rose: #d94f8a;
-      --rose-deep: #a94c76;
-      --text: #7b4762;
-      --white-glass: rgba(255,255,255,0.65);
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(135deg, #fff7fb, #ffe6f1, #ffd9eb);
       min-height: 100vh;
+      color: #8b4d6b;
       overflow-x: hidden;
-      background: linear-gradient(135deg, var(--pink-1), var(--pink-2), var(--pink-3), #fff0f8);
-      background-size: 400% 400%;
-      animation: bgMove 14s ease infinite;
-      color: var(--text);
       position: relative;
     }
-    @keyframes bgMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
     .hearts {
-      position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
     }
     .heart {
-      position: absolute; bottom: -40px; color: rgba(255, 105, 180, 0.34);
-      animation: floatUp linear infinite; user-select: none;
+      position: absolute;
+      bottom: -30px;
+      color: rgba(255, 118, 170, 0.35);
+      animation: floatUp linear infinite;
     }
     @keyframes floatUp {
-      0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0; }
+      0% { transform: translateY(0) scale(1); opacity: 0; }
       10% { opacity: 1; }
-      100% { transform: translateY(-120vh) scale(1.35) rotate(360deg); opacity: 0; }
+      100% { transform: translateY(-120vh) scale(1.3); opacity: 0; }
     }
-    .page {
-      position: relative; z-index: 2; width: 100%; padding: 24px 14px 36px;
-      display: flex; justify-content: center;
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 26px 14px 40px;
     }
-    .container {
-      width: min(94vw, 430px);
-      background: var(--white-glass);
-      border: 1px solid rgba(255,255,255,.78);
-      border-radius: 30px;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 14px 36px rgba(243, 125, 169, 0.18);
-      padding: 24px 18px 26px;
-      animation: fadeUp 1.15s ease;
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .sparkle { position: fixed; font-size: 18px; opacity: .72; pointer-events: none; z-index: 1; animation: twinkle 1.8s infinite ease-in-out; }
-    .s1 { top: 10%; left: 10%; }
-    .s2 { top: 17%; right: 10%; animation-delay: .4s; }
-    .s3 { bottom: 13%; left: 12%; animation-delay: .8s; }
-    .s4 { bottom: 15%; right: 12%; animation-delay: 1.2s; }
-    @keyframes twinkle {
-      0%,100% { transform: scale(.9); opacity: .35; }
-      50% { transform: scale(1.2); opacity: 1; }
+    .card {
+      width: min(92vw, 430px);
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(255,255,255,0.8);
+      border-radius: 28px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 14px 40px rgba(231, 129, 169, 0.18);
+      padding: 24px 16px 22px;
     }
     .main-heart {
-      width: 82px; height: 82px; margin: 8px auto 18px; position: relative;
-      transform: rotate(-45deg); border-radius: 14px;
-      background: linear-gradient(135deg, #ff5fa2, #ff8ab9);
-      box-shadow: 0 10px 22px rgba(255,95,162,.35);
-      animation: heartbeat 1.2s infinite;
+      width: 78px;
+      height: 78px;
+      margin: 6px auto 18px;
+      position: relative;
+      transform: rotate(-45deg);
+      border-radius: 12px;
+      background: linear-gradient(135deg, #ff5d9f, #ff86b9);
+      animation: beat 1.2s infinite;
     }
     .main-heart::before, .main-heart::after {
-      content: ""; position: absolute; width: 82px; height: 82px; border-radius: 50%;
-      background: linear-gradient(135deg, #ff5fa2, #ff8ab9);
+      content: "";
+      position: absolute;
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff5d9f, #ff86b9);
     }
-    .main-heart::before { top: -41px; left: 0; }
-    .main-heart::after { left: 41px; top: 0; }
-    @keyframes heartbeat {
+    .main-heart::before { top: -39px; left: 0; }
+    .main-heart::after { left: 39px; top: 0; }
+    @keyframes beat {
       0%,100% { transform: rotate(-45deg) scale(1); }
-      30% { transform: rotate(-45deg) scale(1.06); }
-      60% { transform: rotate(-45deg) scale(.98); }
-      80% { transform: rotate(-45deg) scale(1.08); }
+      50% { transform: rotate(-45deg) scale(1.08); }
     }
     h1 {
-      text-align: center; color: var(--rose); font-size: 1.95rem; letter-spacing: 1px; margin-bottom: 8px;
+      text-align: center;
+      font-size: 2rem;
+      color: #df4f8d;
+      margin-bottom: 8px;
     }
-    .subtitle {
-      text-align: center; color: #9d627f; font-size: .98rem; margin-bottom: 18px;
+    .sub {
+      text-align: center;
+      font-size: 0.98rem;
+      color: #9f6782;
+      margin-bottom: 18px;
     }
-    .date-card, .message-card, .music-card, .gallery-card, .secret-card {
-      background: rgba(255,255,255,.56);
-      border: 1px solid rgba(255,255,255,.75);
+    .section {
+      background: rgba(255,255,255,0.58);
+      border: 1px solid rgba(255,255,255,0.82);
       border-radius: 22px;
-      padding: 14px 14px;
+      padding: 14px;
       margin-top: 14px;
-      box-shadow: 0 8px 18px rgba(255, 172, 204, 0.1);
     }
-    .section-title {
-      font-size: .92rem; color: #bf5f8d; margin-bottom: 10px; font-weight: 700;
-      letter-spacing: .5px;
+    .title {
+      font-size: 0.95rem;
+      color: #c95f93;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
-    .hero-text {
-      min-height: 84px; line-height: 1.85; font-size: 1.01rem; padding: 4px 2px 0; color: var(--text);
+    .text {
+      line-height: 1.9;
+      font-size: 1rem;
+      min-height: 72px;
     }
     .typing::after {
-      content: "|"; display: inline-block; margin-left: 3px; animation: blink .8s infinite; color: var(--rose);
+      content: "|";
+      animation: blink .8s infinite;
+      margin-left: 3px;
+      color: #df4f8d;
     }
     @keyframes blink { 0%,50% { opacity: 1; } 51%,100% { opacity: 0; } }
-    .anniversary-box {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-    }
-    .metric {
-      background: rgba(255,247,251,.92); border-radius: 18px; padding: 14px 12px; text-align: center;
-      box-shadow: inset 0 0 0 1px rgba(255,170,200,.24);
-    }
-    .metric .num {
-      display: block; font-size: 1.55rem; color: var(--rose); font-weight: 800; margin-bottom: 4px;
-    }
-    .metric .label { font-size: .84rem; color: #9f6883; }
     .gallery {
-      position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 4 / 5; background: #fff7fb;
-      box-shadow: inset 0 0 0 1px rgba(255,182,210,.26);
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #fff3f8;
     }
     .gallery img {
-      width: 100%; height: 100%; object-fit: cover; display: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
     }
     .gallery img.active { display: block; }
-    .gallery-placeholder {
-      width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center; padding: 18px; color: #b27b97; line-height: 1.8; font-size: .95rem;
-      background: linear-gradient(135deg, #fff8fb, #ffe8f1);
-    }
-    .gallery-dots {
-      display: flex; gap: 8px; justify-content: center; margin-top: 10px;
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
     }
     .dot {
-      width: 8px; height: 8px; border-radius: 50%; background: rgba(214,79,138,.25); transition: .25s;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(223,79,141,0.25);
     }
-    .dot.active { width: 22px; border-radius: 999px; background: rgba(214,79,138,.92); }
-    .btn-row {
-      display: flex; flex-direction: column; gap: 10px; margin-top: 14px;
+    .dot.active {
+      width: 22px;
+      border-radius: 999px;
+      background: rgba(223,79,141,0.9);
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .metric {
+      background: rgba(255,248,251,0.95);
+      border-radius: 18px;
+      text-align: center;
+      padding: 14px 10px;
+      box-shadow: inset 0 0 0 1px rgba(255, 183, 210, 0.28);
+    }
+    .num {
+      font-size: 1.6rem;
+      color: #df4f8d;
+      font-weight: 800;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .label {
+      font-size: 0.84rem;
+      line-height: 1.6;
+      color: #a06e87;
     }
     button {
-      border: none; border-radius: 999px; padding: 13px 16px; font-size: .98rem; cursor: pointer;
-      transition: transform .2s ease, opacity .2s ease, box-shadow .2s ease;
+      width: 100%;
+      border: none;
+      border-radius: 999px;
+      padding: 13px 16px;
+      margin-top: 12px;
+      font-size: 0.98rem;
+      cursor: pointer;
+      transition: transform .18s ease;
     }
-    button:active { transform: scale(.97); }
+    button:active { transform: scale(0.97); }
     .primary {
-      background: linear-gradient(135deg, #ff6faa, #ff8ec0); color: #fff;
-      box-shadow: 0 10px 20px rgba(255,111,174,.24);
+      background: linear-gradient(135deg, #ff6eaa, #ff8fc0);
+      color: white;
     }
     .secondary {
-      background: rgba(255,255,255,.85); color: #c64b83; border: 1px solid rgba(255,125,175,.2);
+      background: rgba(255,255,255,0.9);
+      color: #cb578d;
+      border: 1px solid rgba(255, 170, 202, 0.35);
     }
-    .music-status, .hint, .footer {
-      text-align: center; font-size: .84rem; color: #ad7691;
+    .secret {
+      display: none;
+      margin-top: 12px;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,248,251,0.95);
+      line-height: 1.9;
     }
-    .hint { line-height: 1.75; }
-    .message-box {
-      display: none; margin-top: 10px; padding: 14px; border-radius: 18px; background: rgba(255,247,251,.92);
-      line-height: 1.85; color: #9b4f75; box-shadow: inset 0 0 0 1px rgba(255,169,199,.22);
+    .status {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 0.86rem;
+      color: #ae7892;
     }
-    .footer { margin-top: 16px; }
+    .footer {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 0.86rem;
+      color: #b07d96;
+    }
     audio { display: none; }
-    @media (max-width: 420px) {
-      .container { padding: 22px 15px 24px; }
-      h1 { font-size: 1.72rem; }
-      .hero-text { font-size: .97rem; min-height: 92px; }
-      .anniversary-box { gap: 10px; }
-      .metric .num { font-size: 1.4rem; }
-    }
   </style>
 </head>
 <body>
   <div class="hearts" id="hearts"></div>
-  <div class="sparkle s1">✦</div>
-  <div class="sparkle s2">✦</div>
-  <div class="sparkle s3">✦</div>
-  <div class="sparkle s4">✦</div>
 
-  <div class="page">
-    <div class="container">
+  <div class="wrap">
+    <div class="card">
       <div class="main-heart"></div>
       <h1>洪子珍</h1>
-      <div class="subtitle">把喜欢写成页面，把认真交给你。</div>
+      <div class="sub">把喜欢写成页面，把认真交给你。</div>
 
-      <div class="message-card">
-        <div class="section-title">写给你的话</div>
-        <div class="hero-text typing" id="typingText"></div>
-        <div class="btn-row">
-          <button class="secondary" onclick="nextSentence()">再看一句想对你说的话</button>
-        </div>
+      <div class="section">
+        <div class="title">写给你的话</div>
+        <div class="text typing" id="typingText"></div>
+        <button class="secondary" onclick="nextSentence()">再看一句想对你说的话</button>
       </div>
 
-      <div class="date-card">
-        <div class="section-title">我们的纪念日 · 10.09</div>
-        <div class="anniversary-box">
-          <div class="metric">
-            <span class="num" id="daysTogether">0</span>
-            <span class="label">距离最近一个 10 月 9 日已过天数</span>
-          </div>
-          <div class="metric">
-            <span class="num" id="daysToNext">0</span>
-            <span class="label">距离下一个 10 月 9 日还有天数</span>
-          </div>
+      <div class="section">
+        <div class="title">属于我们的照片</div>
+        <div class="gallery">
+          <img id="img1" src="photo1.jpg" class="active" alt="照片1">
+          <img id="img2" src="photo2.jpg" alt="照片2">
+          <img id="img3" src="photo3.jpg" alt="照片3">
         </div>
-      </div>
-
-      <div class="gallery-card">
-        <div class="section-title">属于我们的照片</div>
-        <div class="gallery" id="gallery">
-          <img id="img1" alt="照片1" />
-          <img id="img2" alt="照片2" />
-          <img id="img3" alt="照片3" />
-          <div class="gallery-placeholder" id="galleryPlaceholder">
-            <div>此刻的心动，等你来填满。</div>
-          </div>
-        </div>
-        </div>
-        <div class="gallery-dots">
+        <div class="dots">
           <span class="dot active"></span>
           <span class="dot"></span>
           <span class="dot"></span>
         </div>
-        
       </div>
 
-      <div class="music-card">
-        <div class="section-title">专属 BGM</div>
-        <div class="hero-text" style="min-height:auto; padding-top:0;">
-          《告白气球》 · 周杰伦<br>
-          有些喜欢不需要太多铺垫，旋律一响，心意就自己站出来了。
+      <div class="section">
+        <div class="title">我们的纪念日 · 10.09</div>
+        <div class="metrics">
+          <div class="metric">
+            <span class="num" id="daysTogether">0</span>
+            <div class="label">距离最近一个 10 月 9 日已过天数</div>
+          </div>
+          <div class="metric">
+            <span class="num" id="daysToNext">0</span>
+            <div class="label">距离下一个 10 月 9 日还有天数</div>
+          </div>
         </div>
-        <div class="btn-row">
-          <button class="primary" onclick="playMusic()">播放 / 暂停 BGM</button>
-        </div>
-        <div class="music-status" id="musicStatus" style="margin-top:10px;">轻轻一点，浪漫开始播放。</div>
+      </div>
+
+      <div class="section">
+        <div class="title">《告白气球》 · 周杰伦</div>
+        <div class="text" style="min-height:auto;">有些喜欢不需要太多铺垫，旋律一响，心意就自己站出来了。</div>
+        <button class="primary" onclick="toggleMusic()">播放 / 暂停 BGM</button>
+        <div class="status" id="musicStatus">轻轻一点，浪漫开始播放。</div>
         <audio id="bgm" loop preload="auto" autoplay>
-          <source src="gaobaiqiqiu.mp3" type="audio/mpeg" />
+          <source src="gaobaiqiqiu.mp3" type="audio/mpeg">
         </audio>
-        
       </div>
 
-      <div class="secret-card">
-        <div class="section-title">点开我的小秘密</div>
-        <button class="primary" style="width:100%;" onclick="showLove()">查看隐藏告白</button>
-        <div class="message-box" id="loveBox"></div>
+      <div class="section">
+        <div class="title">点开看看</div>
+        <button class="primary" onclick="showLove()">查看隐藏告白</button>
+        <div class="secret" id="loveBox"></div>
       </div>
 
-      <div class="footer">今天的浪漫，不是随机生成，是认真偏爱。</div>
+      <div class="footer">今天的浪漫，是认真写给你的。</div>
     </div>
   </div>
 
@@ -264,43 +276,39 @@
     const texts = [
       "在有些普通的日子里，因为你，风都变得很温柔。",
       "我想把喜欢写成代码，把心动做成网页，然后郑重地送给你。",
-      "洪子珍，你不是突然闯进我的生活，你是让我生活变亮的人。",
-      "如果爱意可以被具象化，那大概就是我打开这个页面时想起你的样子。",
+      "洪子珍，你是让我生活变亮的人。",
       "和你有关的事情，我都想认真一点，久一点，再久一点。"
     ];
 
     const secretMessages = [
-      "我没有很厉害的魔法，但我想把偏爱、认真和温柔，长期稳定地交付给你。",
-      "别人写程序是为了运行，我写这个网页，是为了表达：你很重要。",
       "我想和你一起把平凡的日子，过成值得收藏的纪念。",
       "喜欢你这件事，不是一时兴起，是我反复确认后的坚定结论。",
       "洪子珍，我不是想短暂地惊艳你，我是想长久地陪着你。"
     ];
 
     let textIndex = 0;
-    let charIndex = 0;
-    let isTyping = false;
+    let typing = false;
     const typingText = document.getElementById('typingText');
     const loveBox = document.getElementById('loveBox');
     const audio = document.getElementById('bgm');
     const musicStatus = document.getElementById('musicStatus');
 
     function typeWriter(text) {
-      isTyping = true;
-      typingText.textContent = "";
-      charIndex = 0;
+      typing = true;
+      typingText.textContent = '';
+      let i = 0;
       const timer = setInterval(() => {
-        typingText.textContent += text.charAt(charIndex);
-        charIndex++;
-        if (charIndex >= text.length) {
+        typingText.textContent += text.charAt(i);
+        i++;
+        if (i >= text.length) {
           clearInterval(timer);
-          isTyping = false;
+          typing = false;
         }
-      }, 62);
+      }, 60);
     }
 
     function nextSentence() {
-      if (isTyping) return;
+      if (typing) return;
       textIndex = (textIndex + 1) % texts.length;
       typeWriter(texts[textIndex]);
     }
@@ -308,83 +316,27 @@
     function showLove() {
       const msg = secretMessages[Math.floor(Math.random() * secretMessages.length)];
       loveBox.style.display = 'block';
-      loveBox.innerHTML = "<strong>给洪子珍：</strong><br>" + msg + "<br><br>我想认真地说一句：<br><strong>我喜欢你，很喜欢你。</strong>";
-    }
-
-    function createHearts() {
-      const hearts = document.getElementById('hearts');
-      for (let i = 0; i < 24; i++) {
-        const heart = document.createElement('div');
-        heart.className = 'heart';
-        heart.innerHTML = ['❤','♥','♡','💗','💖'][Math.floor(Math.random() * 5)];
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.fontSize = (14 + Math.random() * 18) + 'px';
-        heart.style.animationDuration = (6 + Math.random() * 8) + 's';
-        heart.style.animationDelay = (Math.random() * 8) + 's';
-        hearts.appendChild(heart);
-      }
+      loveBox.innerHTML = '<strong>给洪子珍：</strong><br>' + msg + '<br><br><strong>我喜欢你，很喜欢你。</strong>';
     }
 
     function setAnniversary() {
       const now = new Date();
       const year = now.getFullYear();
-      const thisYearAnniv = new Date(year, 9, 9); // 10月9日
+      const thisAnniv = new Date(year, 9, 9);
       let lastAnniv, nextAnniv;
-
-      if (now >= thisYearAnniv) {
-        lastAnniv = thisYearAnniv;
+      if (now >= thisAnniv) {
+        lastAnniv = thisAnniv;
         nextAnniv = new Date(year + 1, 9, 9);
       } else {
         lastAnniv = new Date(year - 1, 9, 9);
-        nextAnniv = thisYearAnniv;
+        nextAnniv = thisAnniv;
       }
-
-      const dayMs = 24 * 60 * 60 * 1000;
-      const daysTogether = Math.floor((now - lastAnniv) / dayMs);
-      const daysToNext = Math.ceil((nextAnniv - now) / dayMs);
-
-      document.getElementById('daysTogether').textContent = daysTogether;
-      document.getElementById('daysToNext').textContent = daysToNext;
+      const day = 24 * 60 * 60 * 1000;
+      document.getElementById('daysTogether').textContent = Math.floor((now - lastAnniv) / day);
+      document.getElementById('daysToNext').textContent = Math.ceil((nextAnniv - now) / day);
     }
 
-    const galleryImages = ['photo1.jpg', 'photo2.jpg', 'photo3.jpg'];
-    let currentImage = 0;
-
-    function initGallery() {
-      const imgEls = [document.getElementById('img1'), document.getElementById('img2'), document.getElementById('img3')];
-      const placeholder = document.getElementById('galleryPlaceholder');
-      let loadedCount = 0;
-
-      galleryImages.forEach((src, index) => {
-        imgEls[index].src = src;
-        imgEls[index].onload = () => {
-          loadedCount++;
-          placeholder.style.display = 'none';
-          if (loadedCount === 1) {
-            imgEls.forEach(el => el.classList.remove('active'));
-            imgEls[0].classList.add('active');
-            startGallery();
-          }
-        };
-      });
-    }
-
-    function startGallery() {
-      const imgEls = [document.getElementById('img1'), document.getElementById('img2'), document.getElementById('img3')];
-      const dots = document.querySelectorAll('.dot');
-      setInterval(() => {
-        const available = imgEls.filter(img => img.complete && img.naturalWidth > 0);
-        if (!available.length) return;
-        imgEls.forEach(img => img.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        currentImage = (currentImage + 1) % available.length;
-        available[currentImage].classList.add('active');
-        dots[currentImage].classList.add('active');
-      }, 2600);
-    }
-
-    function playMusic() {
-      if (!audio) return;
+    function toggleMusic() {
       if (audio.paused) {
         audio.play().then(() => {
           musicStatus.textContent = '《告白气球》正在播放';
@@ -398,17 +350,44 @@
     }
 
     document.addEventListener('click', () => {
-      if (audio && audio.paused) {
+      if (audio.paused) {
         audio.play().then(() => {
           musicStatus.textContent = '《告白气球》正在播放';
         }).catch(() => {});
       }
     }, { once: true });
 
+    function initGallery() {
+      const imgs = [document.getElementById('img1'), document.getElementById('img2'), document.getElementById('img3')];
+      const dots = document.querySelectorAll('.dot');
+      let idx = 0;
+      setInterval(() => {
+        imgs[idx].classList.remove('active');
+        dots[idx].classList.remove('active');
+        idx = (idx + 1) % imgs.length;
+        imgs[idx].classList.add('active');
+        dots[idx].classList.add('active');
+      }, 2500);
+    }
+
+    function createHearts() {
+      const box = document.getElementById('hearts');
+      for (let i = 0; i < 20; i++) {
+        const h = document.createElement('div');
+        h.className = 'heart';
+        h.innerHTML = ['❤','♥','♡','💗'][Math.floor(Math.random() * 4)];
+        h.style.left = Math.random() * 100 + 'vw';
+        h.style.fontSize = (14 + Math.random() * 16) + 'px';
+        h.style.animationDuration = (6 + Math.random() * 7) + 's';
+        h.style.animationDelay = (Math.random() * 6) + 's';
+        box.appendChild(h);
+      }
+    }
+
     createHearts();
     setAnniversary();
-    initGallery();
     typeWriter(texts[0]);
+    initGallery();
   </script>
 </body>
 </html>
